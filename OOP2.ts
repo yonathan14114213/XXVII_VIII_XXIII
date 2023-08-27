@@ -1,12 +1,14 @@
-import { log } from "console";
-
-class Person{
+abstract class Person{
     firstName: string;
     lastName: string;
-
     constructor(firstName:string, lastName:string){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+    }
+    getData(){
+        return this.firstName+this.lastName;
     }
 }
 
@@ -17,11 +19,10 @@ class Patient extends Person{
         this patientID = patientID;
     }
     patientData(){
-        return {name: this.firstName+ this.lastName,
+        return {name: this.getData(),
             id: this.patientID}
     }
 }
-
 class Doctor extends Person{
     doctorID:number;
     specialization:string;
@@ -32,7 +33,7 @@ class Doctor extends Person{
     }
     doctorData(){
         return {
-            name: this.firstName+this.lastName, 
+            name: (this.getData()), 
             id: this.doctorID,
             specialization:this.specialization
         }
@@ -102,32 +103,32 @@ class Hospital {
     }
 }
 
-const patient1 = new Patient(0, 'harry', 'potter');
-const patient2 = new Patient(1, 'mr', 'haid');
-const patient3 = new Patient(2, 'daffy', 'duck');
-const doctor1 = new Doctor('bags', 'bunny', 0, 'madness/carrots');
-const doctor2 = new Doctor('john', 'dolitell', 1, 'veterian');
-const doctor3 = new Doctor('henry', 'jekil', 2, 'ciemstry');
-const appointment1 = new Appointment(patient1, doctor1, 'may the thitrty-fifth', 'five minutes before noon');
-const appointment2 = new Appointment(patient3, doctor2, 'yesterday', '2 pm');
-const appointment3 = new Appointment(patient2, doctor3, 'today', '13:72 pm');
-const appointment4 = new Appointment(patient1, doctor3, 'sunday', '11:65 am');
-const appointment5 = new Appointment(patient2, doctor2, '35/5', '12:00:00');
-const appointment6 = new Appointment(patient3, doctor3, 'tow weeks agow', '21:78:54');
+// const patient1 = new Patient(0, 'harry', 'potter');
+// const patient2 = new Patient(1, 'mr', 'haid');
+// const patient3 = new Patient(2, 'daffy', 'duck');
+// const doctor1 = new Doctor('bags', 'bunny', 0, 'madness/carrots');
+// const doctor2 = new Doctor('john', 'dolitell', 1, 'veterian');
+// const doctor3 = new Doctor('henry', 'jekil', 2, 'ciemstry');
+// const appointment1 = new Appointment(patient1, doctor1, 'may the thitrty-fifth', 'five minutes before noon');
+// const appointment2 = new Appointment(patient3, doctor2, 'yesterday', '2 pm');
+// const appointment3 = new Appointment(patient2, doctor3, 'today', '13:72 pm');
+// const appointment4 = new Appointment(patient1, doctor3, 'sunday', '11:65 am');
+// const appointment5 = new Appointment(patient2, doctor2, '35/5', '12:00:00');
+// const appointment6 = new Appointment(patient3, doctor3, 'tow weeks agow', '21:78:54');
 
-const hospital1 = new Hospital([patient1], [doctor1], [appointment1], 'asaf-ha-hole');
-const hospital2 = new Hospital([patient1, patient2, patient3], [doctor1, doctor2, doctor3], [appointment1,appointment4, appointment5], 'horev Hospital')
+// const hospital1 = new Hospital([patient1], [doctor1], [appointment1], 'asaf-ha-hole');
+// const hospital2 = new Hospital([patient1, patient2, patient3], [doctor1, doctor2, doctor3], [appointment1,appointment4, appointment5], 'horev Hospital')
 
-hospital1.addDoctor(doctor2);
-hospital1.addPatient(patient2);
-hospital1.addDoctor(doctor3);
-hospital1.addPatient(patient3);
+// hospital1.addDoctor(doctor2);
+// hospital1.addPatient(patient2);
+// hospital1.addDoctor(doctor3);
+// hospital1.addPatient(patient3);
 
-hospital1.addApointment(appointment2);
-hospital1.addApointment(appointment3);
-hospital2.addApointment(appointment6);
+// hospital1.addApointment(appointment2);
+// hospital1.addApointment(appointment3);
+// hospital2.addApointment(appointment6);
 
 
-console.log('all appointments:', hospital1.allApointments());
-console.log("Dr bags bunny's appointments", hospital1.appointmentOfDoctor(2));
-console.log("mr potter appointments:", hospital2.appointmentOfPatient(0));
+// console.log('all appointments:', hospital1.allApointments());
+// console.log("Dr bags bunny's appointments", hospital1.appointmentOfDoctor(2));
+// console.log("mr potter appointments:", hospital2.appointmentOfPatient(0));
