@@ -99,15 +99,6 @@ class Appointment{
     orderLine(){this.status = 'waiting'};
     finishLine(){this.status = 'done'};
     cancleLine(){this.status = 'cancle'};
-    /*
-    check(){
-        const age = this.patient.getData().age;
-        const minRange = this.doctor.minRange;
-        const maxRange = this.doctor.maxRange;
-        if (age < minRange|| age > maxRange){
-            return `wer'e sorry, Dr ${this.doctor.getData.name} isn't taking care for patients in this age`
-        }}
-    */
     appointmentData () {
         return {
             patient: this.patient.patientData(),
